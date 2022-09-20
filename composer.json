@@ -2,7 +2,8 @@
     "name": "kevin/qiut-api",
     "autoload": {
         "psr-4": {
-            "Kevin\\QiutApi\\": "src/"
+            "Qiut\\": "src/",
+            "Controllers\\": "controllers/"
         }
     },
     "authors": [

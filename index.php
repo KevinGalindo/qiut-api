@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 use HNova\Rest\apirest;
 
     require __DIR__ .'/vendor/autoload.php';

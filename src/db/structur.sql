@@ -1,0 +1,48 @@
+DROP TABLE IF EXISTS admin;
+CREATE TABLE admin
+(
+id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(50),
+`email` VARCHAR(50),
+`password` VARCHAR(300),
+`token` VARCHAR(50),
+`tokenExp` DATETIME,
+`date` DATETIME DEFAULT CURRENT_TIMESTAMP()
+);
+
+insert `admin` values( DEFAULT, 'admin', 'admin@gmail.com', '1234', '123', null, DEFAULT );
+
+DROP TABLE IF EXISTS products;
+CREATE TABLE products
+(
+id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`date` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+`user` INT(11),
+`name` VARCHAR(50),
+`desc` VARCHAR(50),
+`price` INT(11),
+`type` VARCHAR(50)
+);
+
+DROP TABLE IF EXISTS product_log;
+CREATE TABLE product_log
+(
+id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`date` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+`user` INT
+);
+
+DROP TABLE IF EXISTS product_fil;
+CREATE TABLE product_fil
+(
+id INT(11) PRIMARY KEY AUTO_INCREMENT,
+id_produc INT,
+id_category INT
+);
+
+DROP TABLE IF EXISTS categories;
+CREATE TABLE categories
+(
+id INT(11) PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(50) UNIQUE
+);
