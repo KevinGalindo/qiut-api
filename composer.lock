@@ -1,0 +1,96 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "6b862c8e312cb631d241ae7d81858927",
+    "packages": [
+        {
+            "name": "hnova/db",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heilernova/hnova-db-php.git",
+                "reference": "ed1df90e2dd67226c0d255e7aaea7b4c8aedd4fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heilernova/hnova-db-php/zipball/ed1df90e2dd67226c0d255e7aaea7b4c8aedd4fd",
+                "reference": "ed1df90e2dd67226c0d255e7aaea7b4c8aedd4fd",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HNova\\Db\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "HeilerNova",
+                    "homepage": "https://github.com/heilernova"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/heilernova/hnova-db-php/issues",
+                "source": "https://github.com/heilernova/hnova-db-php/tree/main"
+            },
+            "time": "2022-09-20T20:59:11+00:00"
+        },
+        {
+            "name": "hnova/rest",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heilernova/hnova-rest-php.git",
+                "reference": "c44e1d9c775382e052add3658c1c72419fa84ea0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heilernova/hnova-rest-php/zipball/c44e1d9c775382e052add3658c1c72419fa84ea0",
+                "reference": "c44e1d9c775382e052add3658c1c72419fa84ea0",
+                "shasum": ""
+            },
+            "require-dev": {
+                "composer/composer": "^2.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Run/searh_url.php"
+                ],
+                "psr-4": {
+                    "HNova\\Rest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "HeilerNova",
+                    "homepage": "https://github.com/heilernova"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/heilernova/hnova-rest-php/issues",
+                "source": "https://github.com/heilernova/hnova-rest-php/tree/main"
+            },
+            "time": "2022-09-07T17:17:10+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "hnova/rest": 20,
+        "hnova/db": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

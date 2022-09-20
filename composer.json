@@ -1,0 +1,21 @@
+{
+    "name": "kevin/qiut-api",
+    "autoload": {
+        "psr-4": {
+            "Kevin\\QiutApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "KevinGalindo",
+            "email": "kevingalindo776@gmail.com"
+        }
+    ],
+    "require": {
+        "hnova/rest": "dev-main",
+        "hnova/db": "dev-main"
+    },
+    "scripts":{
+        "nv" : "HNova\\Rest\\Scripts\\script::execute"
+    }
+}
