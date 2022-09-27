@@ -22,9 +22,13 @@ class AccessController {
             $password = req::body()->password;
 
             if ($user->password == $password) {
+
+                $token = $new->createToken($user->id);
+
                 return res::json([
                     "status" => true,
-                    "message" => "Credenciales correcatas"
+                    "message" => "Credenciales correctas",
+                    "token" => $token
                 ], 200);
             }
 
@@ -64,4 +68,12 @@ class AccessController {
 
     }
 
+    static function createAccount(){
+
+        $new = new UsersModels();
+
+        $data = req::body();
+
+        return $new->create($data);
+    }
 }

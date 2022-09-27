@@ -21,4 +21,24 @@ class UsersModels {
 
     }
 
+    public function createToken( int $id ){
+
+        $token = bin2hex(random_bytes((50 - (50 % 2)) / 2));
+
+        $this->db->update( ['token' => $token],['id = :id',['id' => $id]] );
+
+        return $token;
+
+    }
+
+    function create(object $user){
+
+        // $data = json;
+
+        $res = $this->db->insert($user, 'admin', '*');
+
+        return $res->rows[0];
+
+    }
+
 }

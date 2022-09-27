@@ -5,9 +5,10 @@ use HNova\Rest\router;
 
 router::use(fn() => DbController::connect());
 
+router::post('/createAccount' ,fn() => AccessController::createAccount());
 router::post('/auth' ,fn() => AccessController::auth());
 
-// router::use(fn() => AccessController::isAuth());
+router::use(fn() => AccessController::isAuth());
 
 // Rutas para los productos
 router::use('/products', function(){
