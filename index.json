@@ -1,5 +1,23 @@
 {
-    "name": "My app",
-    "descriptions": "",
-    "developers": []
+    "timezone": "America/Bogota",
+    "debug": true,
+    "databases": {
+        "default": {
+            "type": "mysql",
+            "hostname": "localhost",
+            "username": "root",
+            "password": "",
+            "database": "qiut",
+            "port": null
+        }
+    },
+    "routesConfig": {
+        "/": {
+            "cors": {
+                "origin": "*",
+                "methods": "*",
+                "allowedHeaders": "*"
+            }
+        }
+    }
 }

@@ -1,13 +1,4 @@
 <?php
 
-error_reporting(0);
-
-use HNova\Rest\apirest;
-
-    require __DIR__ .'/vendor/autoload.php';
-
-    $app = apirest::createServer();
-
-    $app->use( '/', fn()=> require __DIR__ .'/router.php');
-
-    $app->run();
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/src/app.run.php';

@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/heilernova/hnova-db-php.git",
-                "reference": "bb41af3e2e0d5042d7659824a63a495fb7ff9310"
+                "reference": "e5aecf986732c55d63bc31a96918f6cc6ff58d1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heilernova/hnova-db-php/zipball/bb41af3e2e0d5042d7659824a63a495fb7ff9310",
-                "reference": "bb41af3e2e0d5042d7659824a63a495fb7ff9310",
+                "url": "https://api.github.com/repos/heilernova/hnova-db-php/zipball/e5aecf986732c55d63bc31a96918f6cc6ff58d1b",
+                "reference": "e5aecf986732c55d63bc31a96918f6cc6ff58d1b",
                 "shasum": ""
             },
             "default-branch": true,
@@ -28,9 +28,12 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
             "authors": [
                 {
-                    "name": "HeilerNova",
+                    "name": "Heiler Nova",
                     "homepage": "https://github.com/heilernova"
                 }
             ],
@@ -38,7 +41,7 @@
                 "issues": "https://github.com/heilernova/hnova-db-php/issues",
                 "source": "https://github.com/heilernova/hnova-db-php/tree/main"
             },
-            "time": "2022-09-21T20:30:37+00:00"
+            "time": "2022-09-24T20:03:21+00:00"
         },
         {
             "name": "hnova/rest",
@@ -46,12 +49,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/heilernova/hnova-rest-php.git",
-                "reference": "c44e1d9c775382e052add3658c1c72419fa84ea0"
+                "reference": "0e6a11e12eaa0428014f81f5bbb0fdee2f288937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heilernova/hnova-rest-php/zipball/c44e1d9c775382e052add3658c1c72419fa84ea0",
-                "reference": "c44e1d9c775382e052add3658c1c72419fa84ea0",
+                "url": "https://api.github.com/repos/heilernova/hnova-rest-php/zipball/0e6a11e12eaa0428014f81f5bbb0fdee2f288937",
+                "reference": "0e6a11e12eaa0428014f81f5bbb0fdee2f288937",
                 "shasum": ""
             },
             "require-dev": {
@@ -78,7 +81,7 @@
                 "issues": "https://github.com/heilernova/hnova-rest-php/issues",
                 "source": "https://github.com/heilernova/hnova-rest-php/tree/main"
             },
-            "time": "2022-09-07T17:17:10+00:00"
+            "time": "2022-09-26T14:18:21+00:00"
         }
     ],
     "packages-dev": [],

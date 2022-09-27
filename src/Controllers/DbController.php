@@ -1,7 +1,8 @@
 <?php
 
-namespace Controllers;
+namespace Qiut\Controllers;
 
+use HNova\Db\Client;
 use HNova\Db\db;
 use HNova\Rest\apirest;
 use HNova\Rest\res;
@@ -12,9 +13,9 @@ class DbController {
 
         try {
             
-            $pdo = apirest::getEnvironment()->getDatabasePDO('default');
-            $dbObject = db::connect()->setPDO($pdo);
-            db::setDefault($dbObject);
+            $pdo = apirest::getEnvironment()->getDatabasePDO();
+            $client = new Client($pdo);
+            db::setDefault($client);
 
         } catch (\Throwable $th) {
 

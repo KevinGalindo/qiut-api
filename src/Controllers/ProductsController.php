@@ -1,12 +1,12 @@
 <?php
 
- namespace Controllers;
+ namespace Qiut\Controllers;
 
 use HNova\Rest\req;
 use HNova\Rest\res;
 use Qiut\Models\ProductsModels;
 
- class products_controller {
+ class ProductsController {
 
     static function getAll(){
 
@@ -56,14 +56,7 @@ use Qiut\Models\ProductsModels;
     }
 
     static function createProduct(){
-
-        $model = new ProductsModels();
-
-        $data = req::body();
-
-        
-        return $model->create($data);
-        
+        return require __DIR__ . '/scripts/products/product-post.php';
     }
 
  }
