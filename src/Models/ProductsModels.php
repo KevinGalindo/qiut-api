@@ -2,8 +2,6 @@
 
 namespace Qiut\Models;
 
-use HNova\Db\db;
-use HNova\Rest\res;
 use Qiut\Models\Entities\ProductInfo;
 use Qiut\qiut;
 

@@ -52,9 +52,6 @@ class UsersModels extends BaseModel {
     }
 
     function emailValid(string $email):bool {
-
-        // return $this->db->execSelect(condition: 'email = ?', params: [$email])->rowsCount == 0;
-
         return $this->db->execCommand("SELECT * FROM `admin` WHERE `email` = ?", [$email])->rowsCount == 0;
     }
 

@@ -2,9 +2,6 @@
 
 namespace Qiut\Controllers;
 
-use HNova\Db\Client;
-use HNova\Db\db;
-use HNova\Rest\req;
 use HNova\Rest\res;
 use Qiut\Models\UsersModels;
 
@@ -39,5 +36,29 @@ class AccessController {
 
     }
 
+    static function logout(){
+
+        $token = apache_request_headers()[ 'Access-Token' ]?? null;
+
+        if ($token) {
+            $model = new UsersModels();
+            $user = $model->getUserByToken($token);
+
+            if ($user) {
+
+                $model = new UsersModels();
+                $model->createToken($user->id);
+    
+                $json = ['status' => true, "message" => "Sea cerradp seccion correctamente"];
+
+                return res::json($json, 200);
+            }
+        }
+
+        $json = ['status' => false, "message" => "No estas autenticado"];
+
+        return res::json($json, 401);
+
+    }
 
 }
