@@ -45,7 +45,7 @@ class ProductsModels extends BaseModel {
 
     }
 
-    function create(object $product){
+    function create(object $product): ?ProductInfo{
         $product->user = qiut::getUser()->id;
         $res = $this->db->execInsert($product, 'products', '*' )->rows[0] ?? null;
 

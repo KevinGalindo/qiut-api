@@ -6,6 +6,27 @@ use Qiut\qiut;
 
 $model = new ProductsModels();
 
-$product = $model->create(req::body());
+$data = req::body()->data; # Información del product
+$images = req::files(); # Lista de las imagenes
 
-return $product;
+
+# creamos el productos
+$obj = $model->create($data);
+
+
+$id = str_pad($obj->id, 5, '0', STR_PAD_LEFT);
+$path = "files/products/P$id/";
+
+if (!file_exists($path)) mkdir($path);
+
+foreach($images as $file){
+
+    $file->save($path . $file->name);
+}
+
+return $data;
+// $data = req::body()
+
+// return $files;
+
+// return $product;
