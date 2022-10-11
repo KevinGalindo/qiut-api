@@ -23,4 +23,4 @@ router::use('users', function(){
     router::post('', fn() => '');
 });
 
-router::put('logout', fn() => AccessController::logout());
+router::put('logout', fn() => AccessController::logout()); // Cierra la seccion

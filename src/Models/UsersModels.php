@@ -40,6 +40,18 @@ class UsersModels extends BaseModel {
 
     }
 
+    public function breakToken( int $id ):bool{
+
+        $this->db->execUpdate(
+            values: ['token' => NULL , 'tokenExp' => NULL],
+            condition: 'id = ?',
+            conditionParams : [$id]
+        );
+
+        return true;
+
+    }
+
     public function updatePasswordHash(int $id, string $password):void {
         $password = password_hash($password, PASSWORD_DEFAULT, ['cos' => 3]);
         $this->db->execUpdate(['password' => $password], 'id = ?', [$id]);

@@ -47,7 +47,7 @@ class AccessController {
             if ($user) {
 
                 $model = new UsersModels();
-                $model->createToken($user->id);
+                $model->breakToken($user->id);
     
                 $json = ['status' => true, "message" => "Sea cerradp seccion correctamente"];
 
