@@ -25,8 +25,3 @@ foreach($images as $file){
 }
 
 return $data;
-// $data = req::body()
-
-// return $files;
-
-// return $product;

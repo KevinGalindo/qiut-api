@@ -14,9 +14,9 @@ class ProductsModels extends BaseModel {
 
     function getAll(){
 
-        // $res = $this->db->query( 'SELECT * FROM products' );
+        $rows = $this->db->execSelect()->rows;
 
-        // return $res->rows;
+        return array_map(fn($row) => new ProductInfo($row), $rows);
 
     }
 

@@ -1,6 +1,7 @@
 <?php
 namespace Qiut\Models\Entities;
 
+
 class ProductInfo extends BaseEntities
 {
     public int $id;
@@ -9,5 +10,13 @@ class ProductInfo extends BaseEntities
     public string $name;
     public string $description;
     public int $price;
-    public array $categories = [];
+    public string $type;
+    public array $categorys = [];
+    public array $images = [];
+
+    public function __construct($data) {
+        parent::__construct($data);
+        $path = "files/products/P". str_pad($this->id, 5, '0', STR_PAD_LEFT). "/";
+        $this->images = glob($path . "*");
+    }
 }

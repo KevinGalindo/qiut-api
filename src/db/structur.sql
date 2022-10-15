@@ -19,9 +19,10 @@ CREATE TABLE products
     `date` DATETIME DEFAULT CURRENT_TIMESTAMP(),
     `user` INT(11),
     `name` VARCHAR(50) NOT NULL UNIQUE,
+    `type` VARCHAR(50) NOT NULL,
     `description` VARCHAR(50) NOT NULL,
     `price` INT(11) NOT NULL,
-    `categories` JSON DEFAULT '[]'
+    `categorys` JSON DEFAULT '[]'
 );
 
 DROP TABLE IF EXISTS product_log;
