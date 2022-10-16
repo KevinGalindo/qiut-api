@@ -17,6 +17,8 @@ class ProductInfo extends BaseEntities
     public function __construct($data) {
         parent::__construct($data);
         $path = "files/products/P". str_pad($this->id, 5, '0', STR_PAD_LEFT). "/";
-        $this->images = glob($path . "*");
+        $arrayImgs = glob($path . "*");
+        $this->images = array_map(fn($img)=>basename($img),$arrayImgs);
+        // $this->images = glob($path . "*");
     }
 }
