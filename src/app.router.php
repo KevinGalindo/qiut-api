@@ -14,6 +14,7 @@ router::post('auth', fn() => AccessController::auth()); // Autenticarse
 
 router::use('getproducts', function(){
     router::get('', fn() => ProductsController::getAll());
+    router::get('/:id', fn() => ProductsController::getProduct());
 });
 
 router::use('media', function(){

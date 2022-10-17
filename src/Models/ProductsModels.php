@@ -21,11 +21,13 @@ class ProductsModels extends BaseModel {
     }
 
     function get( int $id ):?object{
+        
+        $res = $this->db->execCommand( 
+            sql: 'SELECT * FROM `products` WHERE `id` =?',
+            params: [$id]
+        );
 
-        // $res = $this->db->query( 'SELECT * FROM `products` WHERE `id` =?', [$id] );
-
-        // return $res->rows[0]?? null;
-        return null;
+        return $res->rows[0] ?? null;
 
     }
 
