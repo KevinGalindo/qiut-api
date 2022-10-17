@@ -19,6 +19,5 @@ class ProductInfo extends BaseEntities
         $path = "files/products/P". str_pad($this->id, 5, '0', STR_PAD_LEFT). "/";
         $arrayImgs = glob($path . "*");
         $this->images = array_map(fn($img)=>basename($img),$arrayImgs);
-        // $this->images = glob($path . "*");
     }
 }

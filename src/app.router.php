@@ -19,6 +19,9 @@ router::use('getproducts', function(){
 router::use('media', function(){
 
     router::get('products/:produc/:name', function(){
+        if (req::params()->name == 'default') {
+            return res::file("files/products/default.jpg");
+        }
         return res::file("files/products/P" . str_pad(req::params()->produc, 5, '0', STR_PAD_LEFT)."/". req::params()->name);
     });
     router::get('products/:produc', function(){

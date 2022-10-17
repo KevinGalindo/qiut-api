@@ -21,7 +21,9 @@ if (!file_exists($path)) mkdir($path);
 
 foreach($images as $file){
 
-    $file->save($path . $file->name);
+    if ($file->save($path . $file->name)) {
+        $obj->images[] = $file->name;
+    }
 }
 
-return $data;
+return $obj;
