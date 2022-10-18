@@ -27,7 +27,9 @@ class ProductsModels extends BaseModel {
             params: [$id]
         );
 
-        return $res->rows[0] ?? null;
+        $row = $res->rows[0] ?? null;
+
+        return new ProductInfo($row);
 
     }
 
