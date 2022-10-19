@@ -36,6 +36,7 @@ router::use(fn() => AccessController::isAuth()); // Verifica la autenticacion
 
 router::use('products', function(){
     router::post('', fn() => ProductsController::createProduct());
+    router::put('/:id', fn() => ProductsController::updateProduct());
 });
 
 router::use('users', function(){

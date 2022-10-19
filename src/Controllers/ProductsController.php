@@ -47,11 +47,27 @@ use Qiut\Models\ProductsModels;
     static function updateProduct(){
 
         $id   = req::params()->id;
-        $data = req::body();
+        $images = req::files(); # Lista de las imagenes
+        $data = req::body()->data;
 
         $model = new ProductsModels();
 
-        return $model->update($id,$data);
+        // Actualizamos el producto
+        $obj =  $model->update($id, $data);
+
+        $idImg = str_pad($id, 5, '0', STR_PAD_LEFT);
+        $path = "files/products/P$idImg/";
+
+        if (!file_exists($path)) mkdir($path);
+
+        foreach($images as $file){
+
+            if ($file->save($path . $file->name)) {
+                $obj->images[] = $file->name;
+            }
+        }
+
+        return $obj;
 
     }
 

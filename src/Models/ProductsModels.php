@@ -41,11 +41,18 @@ class ProductsModels extends BaseModel {
 
     }
 
-    function update( int $id, object $data ):bool{
-        return false;
-        // $res = $this->db->update( $data, ['id = :id', [ 'id' => $id ]]);
+    function update( int $id, object $data ): ?ProductInfo{
+        
+        $this->db->execUpdate(
+            values: $data,
+            condition: "id = :id",
+            conditionParams: ['id' => $id],
+            table: 'products'
+        );
 
-        // return $res->rowsCount > 0 ;
+        $res = $this->get($id);
+
+        return new ProductInfo($res);
 
     }
 
