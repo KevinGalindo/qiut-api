@@ -2,6 +2,7 @@
 
 namespace Qiut\Models;
 
+use HNova\Rest\apirest;
 use Qiut\Models\Entities\ProductInfo;
 use Qiut\qiut;
 
@@ -20,7 +21,7 @@ class ProductsModels extends BaseModel {
 
     }
 
-    function get( int $id ):?object{
+    function get( int $id ): ProductInfo | null{
         
         $res = $this->db->execCommand( 
             sql: 'SELECT * FROM `products` WHERE `id` =?',
@@ -29,30 +30,44 @@ class ProductsModels extends BaseModel {
 
         $row = $res->rows[0] ?? null;
 
-        return new ProductInfo($row);
+        return $row ? new ProductInfo($row) : null;
 
     }
 
-    function delete( int $id){
+    function delete( int $id): bool{
 
-        // $res = $this->db->delete( "id =?", [$id] );
+        $res = $this->db->execDelete(
+            condition: "id = ?",
+            params: [$id],
+            table: 'products'
+        );
 
-        // return $res->rowsCount > 0;
+        if ($res->rowsCount > 0) {
+
+
+            $path = apirest::getDir()."/files/products/P". str_pad($id, 5, '0', STR_PAD_LEFT). "/";
+            $imagesDelete = glob($path . "*");
+            foreach($imagesDelete as $img){
+                unlink($img);
+            }
+            rmdir(rtrim($path, "/"));
+            return true;
+        }
+
+        return false;
 
     }
 
-    function update( int $id, object $data ): ?ProductInfo{
+    function update( int $id, object $data ): bool{
         
-        $this->db->execUpdate(
+        $res = $this->db->execUpdate(
             values: $data,
             condition: "id = :id",
             conditionParams: ['id' => $id],
             table: 'products'
         );
 
-        $res = $this->get($id);
-
-        return new ProductInfo($res);
+        return $res->rowsCount > 0;
 
     }
 

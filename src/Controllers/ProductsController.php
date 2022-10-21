@@ -49,11 +49,13 @@ use Qiut\Models\ProductsModels;
         $id   = req::params()->id;
         $images = req::files(); # Lista de las imagenes
         $data = req::body()->data;
+        $imgDelete = req::body()->deleteImgs;
+
 
         $model = new ProductsModels();
 
         // Actualizamos el producto
-        $obj =  $model->update($id, $data);
+        $model->update($id, $data);
 
         $idImg = str_pad($id, 5, '0', STR_PAD_LEFT);
         $path = "files/products/P$idImg/";
@@ -61,11 +63,14 @@ use Qiut\Models\ProductsModels;
         if (!file_exists($path)) mkdir($path);
 
         foreach($images as $file){
-
-            if ($file->save($path . $file->name)) {
-                $obj->images[] = $file->name;
-            }
+            $file->save($path . $file->name);
         }
+
+        foreach($imgDelete as $img){
+            unlink($path . $img);
+        }
+
+        $obj = $model->get($id);
 
         return $obj;
 

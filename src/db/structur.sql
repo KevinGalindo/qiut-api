@@ -1,3 +1,21 @@
+DROP TABLE IF EXISTS info_empres;
+CREATE TABLE info_empres
+(
+    `id` INT(11) PRIMARY KEY AUTO_INCREMENT,
+    `description` varchar(1000),
+    `ubication` VARCHAR(50),
+    `gmail` VARCHAR(50),
+    `telefono` CHAR(10)
+);
+
+insert `info_empres` values( 
+    DEFAULT,
+    null,
+    null,
+    null,
+    "3176539262"
+);
+
 DROP TABLE IF EXISTS admin;
 CREATE TABLE admin
 (
