@@ -3,7 +3,7 @@ CREATE TABLE info_empres
 (
     `id` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `description` varchar(1000),
-    `ubication` VARCHAR(50),
+    `ubication` VARCHAR(500),
     `gmail` VARCHAR(50),
     `telefono` CHAR(10)
 );
@@ -46,9 +46,9 @@ CREATE TABLE products
 DROP TABLE IF EXISTS product_log;
 CREATE TABLE product_log
 (
-`id` INT(11) PRIMARY KEY AUTO_INCREMENT,
-`date` DATETIME DEFAULT CURRENT_TIMESTAMP(),
-`user` INT
+    `id` INT(11) PRIMARY KEY AUTO_INCREMENT,
+    `date` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+    `user` INT
 );
 
 DROP TABLE IF EXISTS categories;

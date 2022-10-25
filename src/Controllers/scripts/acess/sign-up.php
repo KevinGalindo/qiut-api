@@ -9,7 +9,7 @@ $data = req::body();
 
 if (!$model->emailValid($data->email)){
     return res::json([
-        'message' => 'El correo eletrónico ya esta en uso'
+        'message' => 'Este correo electrónico ya se encuentra en uso'
     ], 400);
 }
 

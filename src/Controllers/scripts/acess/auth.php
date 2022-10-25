@@ -36,5 +36,5 @@ if ($user) {
 
 return res::json([
     "status" => false,
-    "message" => "Correo erroneo"
+    "message" => "El correo es invalido"
 ], 401);

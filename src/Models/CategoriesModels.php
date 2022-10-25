@@ -17,8 +17,6 @@ class CategoriesModels extends BaseModel{
             table: "categories"
         )->rows;
 
-        return $rows;
-        // return array_map(fn($row) => new CategoriesInfo($row), $rows);
-
+        return array_map(fn($row) => new CategoriesInfo($row), $rows);
     }
 }

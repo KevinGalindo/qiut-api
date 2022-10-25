@@ -13,7 +13,6 @@ router::post('sign-up', fn() => AccessController::signUp()); // Crear un usuario
 
 router::post('auth', fn() => AccessController::auth()); // Autenticarse
 
-
 router::get('empres', function(){
     $clien = new Client();
     
@@ -24,25 +23,10 @@ router::get('empres', function(){
         
     return $rows;
 });
-
-router::get('categories', function(){
-    $clien = new Client();
     
-    $rows = $clien->execCommand(
-        sql: "SELECT * FROM `categories`"
-    )->rows;
-
-    // var_dump($rows); exit;
-
-    return $rows;
-    // $rows_json = json_encode($rows);
-
-    // return json_last_error() == JSON_ERROR_NONE  ? 'Formato de texto correcto' : 'El formato de texto es incorrecto';
+router::use('categories', function(){
+    router::get('', fn() => CategoriesController::getAll());
 });
-    
-// router::use('categories', function(){
-//     router::get('', fn() => CategoriesController::getAll());
-// });
 
 router::use('getproducts', function(){
     router::get('', fn() => ProductsController::getAll());
