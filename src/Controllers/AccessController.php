@@ -18,7 +18,7 @@ class AccessController {
 
     static function isAuth(){
 
-        $token = apache_request_headers()[ 'Access-Token' ]?? null;
+        $token = apache_request_headers()[ 'access-token' ] ?? (apache_request_headers()[ 'Access-Token' ] ?? null);
 
         if ($token) {
             $model = new UsersModels();
