@@ -48,7 +48,7 @@ class AccessController {
 
     static function logout(){
 
-        $token = apache_request_headers()[ 'access-token' ]?? null;
+        $token = apache_request_headers()[ 'access-token' ]?? (apache_request_headers()[ 'Access-Token' ] ?? null);
 
         if ($token) {
             $model = new UsersModels();
