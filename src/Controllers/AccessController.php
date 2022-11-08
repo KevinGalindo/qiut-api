@@ -3,6 +3,7 @@
 namespace Qiut\Controllers;
 
 use HNova\Rest\res;
+use LengthException;
 use Qiut\Models\UsersModels;
 
 class AccessController {
@@ -10,6 +11,7 @@ class AccessController {
     static function auth(){
         return require __DIR__ . '/scripts/acess/auth.php';
     }
+
     static function signUp(){
        return require __DIR__ . '/scripts/acess/sign-up.php';
     }
@@ -36,6 +38,14 @@ class AccessController {
 
     }
 
+    static function userAll(){
+        $model = new UsersModels();
+
+        $cout = $model->getUsersAll();
+
+        return $cout;
+    }
+
     static function logout(){
 
         $token = apache_request_headers()[ 'Access-Token' ]?? null;
@@ -49,7 +59,7 @@ class AccessController {
                 $model = new UsersModels();
                 $model->breakToken($user->id);
     
-                $json = ['status' => true, "message" => "Sea cerradp seccion correctamente"];
+                $json = ['status' => true, "message" => "Sea cerrado seccion correctamente"];
 
                 return res::json($json, 200);
             }

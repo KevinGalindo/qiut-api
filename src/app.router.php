@@ -23,9 +23,13 @@ router::get('empres', function(){
         
     return $rows;
 });
+
+router::get('users', fn() => AccessController::userAll());
     
 router::use('categories', function(){
     router::get('', fn() => CategoriesController::getAll());
+    router::post('', fn() => CategoriesController::createCategory());
+    router::delete('/:id', fn() => CategoriesController::deleteCategory());
 });
 
 router::use('getproducts', function(){
@@ -54,10 +58,6 @@ router::use('products', function(){
     router::post('', fn() => ProductsController::createProduct());
     router::put('/:id', fn() => ProductsController::updateProduct());
     router::delete('/:id', fn() => ProductsController::deleteProduct());
-});
-
-router::use('users', function(){
-    router::post('', fn() => '');
 });
 
 router::put('logout', fn() => AccessController::logout()); // Cierra la seccion
