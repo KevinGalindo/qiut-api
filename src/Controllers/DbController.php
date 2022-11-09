@@ -17,6 +17,9 @@ class DbController {
             $client = new Client($pdo);
             db::setDefault($client);
 
+            $json = [ 'status'=>true, 'message'=> 'Conexión estable' ];
+            return res::json($json, 200);
+
         } catch (\Throwable $th) {
 
 
